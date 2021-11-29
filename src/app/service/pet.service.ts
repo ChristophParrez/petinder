@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
+import {Pet} from "../model/Pet";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class PetService {
     this.backendUrl = `${environment.backendUrl}/pets`;
   }
 
-  getPets(): Observable<any> {
-    return this.http.get(this.backendUrl);
+  getPets(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(this.backendUrl)
+      .pipe(map(pets => pets.sort((pet1, pet2) => pet1.name.localeCompare((pet2.name)))));
   }
 }

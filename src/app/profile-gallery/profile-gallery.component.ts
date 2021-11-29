@@ -9,12 +9,14 @@ import {Pet} from "../model/Pet";
 })
 export class ProfileGalleryComponent implements OnInit {
 
-  private petService: PetService;
+  private _petService: PetService;
   private _pets: Pet[];
+  private _selectedPet!: Pet;
 
   constructor(petService: PetService) {
-    this.petService = petService;
+    this._petService = petService;
     this._pets = [];
+    // this._selectedPet = Object();
   }
 
   ngOnInit(): void {
@@ -22,10 +24,19 @@ export class ProfileGalleryComponent implements OnInit {
   }
 
   getPets(): void {
-    this.petService.getPets().subscribe(pets => this._pets = pets);
+    this._petService.getPets().subscribe(pets => this._pets = pets);
+  }
+
+  selectPet(pet: Pet): void {
+    console.log('Selecting pet', pet);
+    this._selectedPet = pet;
   }
 
   get pets(): Pet[] {
     return this._pets;
+  }
+
+  get selectedPet(): Pet {
+    return this._selectedPet;
   }
 }
