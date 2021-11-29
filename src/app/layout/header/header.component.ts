@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  private _title: string;
 
-  constructor() { }
+  constructor() {
+    this._title = 'Petinder'
+  }
+
+  get title(): string {
+    return this._title;
+  }
 
   ngOnInit(): void {
   }
