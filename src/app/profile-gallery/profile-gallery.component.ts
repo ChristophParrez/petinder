@@ -11,12 +11,12 @@ export class ProfileGalleryComponent implements OnInit {
 
   private _petService: PetService;
   private _pets: Pet[];
-  private _selectedPet!: Pet;
+  private _selectedPet: Pet | null;
 
   constructor(petService: PetService) {
     this._petService = petService;
     this._pets = [];
-    // this._selectedPet = Object();
+    this._selectedPet = null;
   }
 
   ngOnInit(): void {
@@ -36,7 +36,7 @@ export class ProfileGalleryComponent implements OnInit {
     return this._pets;
   }
 
-  get selectedPet(): Pet {
+  get selectedPet(): Pet | null {
     return this._selectedPet;
   }
 }
