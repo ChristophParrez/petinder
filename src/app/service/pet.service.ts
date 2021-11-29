@@ -18,4 +18,8 @@ export class PetService {
     return this.http.get<Pet[]>(this.backendUrl)
       .pipe(map(pets => pets.sort((pet1, pet2) => pet1.name.localeCompare((pet2.name)))));
   }
+
+  addPet(newPet: Pet) {
+    return this.http.post(this.backendUrl, newPet)
+  }
 }

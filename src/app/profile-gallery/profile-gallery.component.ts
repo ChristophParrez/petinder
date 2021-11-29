@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PetService} from "../service/pet.service";
 import {Pet} from "../model/Pet";
+import {FormBuilder} from '@angular/forms';
+import {Kind} from '../model/Kind';
 
 @Component({
   selector: 'app-profile-gallery',
@@ -9,14 +11,28 @@ import {Pet} from "../model/Pet";
 })
 export class ProfileGalleryComponent implements OnInit {
 
-  private _petService: PetService;
   private _pets: Pet[];
   private _selectedPet: Pet | null;
+  public searchText: string;
+  public KindEnum = Kind;
 
-  constructor(petService: PetService) {
-    this._petService = petService;
+  public addPetForm = this.formBuilder.group({
+    name: '',
+    kind: '',
+    image: '',
+    profileText: '',
+    popularity: ''
+  });
+
+  constructor(private petService: PetService, private formBuilder: FormBuilder) {
     this._pets = [];
     this._selectedPet = null;
+    this.searchText = '';
+  }
+
+  onSubmit(): void {
+    this.petService.addPet(this.addPetForm.value).subscribe(() => this.getPets());
+    this.addPetForm.reset();
   }
 
   ngOnInit(): void {
@@ -24,12 +40,16 @@ export class ProfileGalleryComponent implements OnInit {
   }
 
   getPets(): void {
-    this._petService.getPets().subscribe(pets => this._pets = pets);
+    this.petService.getPets().subscribe(pets => this._pets = pets);
   }
 
   selectPet(pet: Pet): void {
     console.log('Selecting pet', pet);
     this._selectedPet = pet;
+  }
+
+  showDefaultImage(event: any): void {
+    event.target.src = './assets/images/image-not-found.png';
   }
 
   get pets(): Pet[] {

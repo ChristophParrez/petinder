@@ -5,17 +5,22 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LayoutModule} from "./layout/layout.module";
 import {ProfileGalleryComponent} from './profile-gallery/profile-gallery.component';
+import {NameFilterPipe} from './pipe/name-filter.pipe';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileGalleryComponent
+    ProfileGalleryComponent,
+    NameFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
