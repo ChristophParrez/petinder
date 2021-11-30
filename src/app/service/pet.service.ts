@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
-import { map, Observable } from "rxjs";
+import { map, mergeMap, Observable } from "rxjs";
 import { Pet } from "../model/Pet";
 
 @Injectable({
@@ -32,7 +32,9 @@ export class PetService {
     return this.http.delete(`${this.backendUrl}/${petId}`);
   }
 
-  sendText(text: string): Observable<Object> {
-    return this.http.post(`${this.backendUrl}/sendText`, text);
+  sendText(text: string, pet: Pet): Observable<Object> {
+    // return this.http.post(`${this.backendUrl}/sendText`, text);
+    return this.http.post(`${this.backendUrl}/sendText`, text)
+      .pipe(mergeMap(() => this.http.get(`${this.backendUrl}/${pet.name}/incrementPopularity`)));
   }
 }
