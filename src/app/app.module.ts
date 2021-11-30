@@ -8,13 +8,15 @@ import {ProfileGalleryComponent} from './profile-gallery/profile-gallery.compone
 import {NameFilterPipe} from './pipe/name-filter.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SetupDateComponent } from './date/setup-date/setup-date.component';
+import { PopularityPipe } from './pipe/popularity.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileGalleryComponent,
     NameFilterPipe,
-    SetupDateComponent
+    SetupDateComponent,
+    PopularityPipe
   ],
   imports: [
     BrowserModule,

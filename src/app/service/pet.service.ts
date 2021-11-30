@@ -24,6 +24,7 @@ export class PetService {
   }
 
   addPet(newPet: Pet): Observable<Object> {
+    console.log(newPet);
     return this.http.post(this.backendUrl, newPet);
   }
 

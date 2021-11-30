@@ -16,7 +16,7 @@
           <h3>{{selectedPet.name}}</h3>
           <p>{{selectedPet.profileText}}</p>
           <p>
-            <strong>Popularity:</strong> {{selectedPet.popularity}}<br />
+            <strong>Popularity:</strong>{{selectedPet.popularity}} {{selectedPet.popularity | popularity}}<br />
             <strong>Kind:</strong> {{selectedPet.kind | titlecase}}
           </p>
           <div class="dialog-centered btn-group-lg">

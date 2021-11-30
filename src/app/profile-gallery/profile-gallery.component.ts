@@ -46,6 +46,7 @@ export class ProfileGalleryComponent implements OnInit {
   selectPet(pet: Pet): void {
     if (this._selectedPet == pet) this._selectedPet = null;
     else this._selectedPet = pet;
+    console.log('Selected pet', pet);
   }
 
   deletePet(petId: number): void {
