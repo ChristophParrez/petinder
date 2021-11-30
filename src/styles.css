@@ -21,11 +21,12 @@ audio:not([controls]) {
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  margin: 0
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -664,8 +665,8 @@ pre code {
 }
 
 .row {
-  margin-left: -15px;
-  margin-right: -15px
+  /*margin-left: -15px;*/
+  /*margin-right: -15px*/
 }
 
 .row:after, .row:before {
@@ -6406,7 +6407,8 @@ body {
 }
 
 .profile-picture {
-  height: 240px
+  height: 240px;
+  display: block;
 }
 
 .small-profile-picture {
@@ -6430,11 +6432,12 @@ body {
 
 .gallery-pet .overlay {
   top: 120px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
   position: absolute;
-  background-image: linear-gradient(180deg, rgba(33, 41, 44, 0) 0, #21292c 100%)
+  background-image: linear-gradient(180deg, rgba(33, 41, 44, 0) 0, #21292c 100%);
+  overflow: hidden;
 }
 
 .overlay-text {
@@ -6448,7 +6451,18 @@ body {
 }
 
 .gallery-pet.active img {
-  box-shadow: 0 4px 7px 2px #ef87c6
+  box-shadow: 0 0 7px 2px #ef87c6; /* original */
+}
+
+.gallery-pet.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 36px 21px #ef87c6;
 }
 
 .big-dialog {
@@ -6471,10 +6485,12 @@ body {
 }
 
 .gallery-pet {
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in;
 }
 
-.gallery-pet:hover, .gallery-pet.active {
-  transform: scale(1.03, 1.03);
+.gallery-pet:hover
+/*, .gallery-pet.active */
+{
+  transform: scale(1.03);
 }
 

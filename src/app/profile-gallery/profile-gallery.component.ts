@@ -44,8 +44,8 @@ export class ProfileGalleryComponent implements OnInit {
   }
 
   selectPet(pet: Pet): void {
-    console.log('Selecting pet', pet);
-    this._selectedPet = pet;
+    if (this._selectedPet == pet) this._selectedPet = null;
+    else this._selectedPet = pet;
   }
 
   showDefaultImage(event: any): void {

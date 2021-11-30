@@ -2,7 +2,7 @@
   <div class="row">
     <div id="gallery" class="col-md-9">
       <div class="gallery">
-        <div class="gallery-pet fader" *ngFor="let pet of pets | nameFilter: searchText" (click)="selectPet(pet)">
+        <div class="gallery-pet fader" *ngFor="let pet of pets | nameFilter: searchText" (click)="selectPet(pet)" [class.active]="selectedPet === pet">
           <img class="profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image" (error)="showDefaultImage($event)">
           <div class="overlay">
             <div class="overlay-text">{{pet.name}}</div>
@@ -31,8 +31,8 @@
             <label for="add-pet-form-name">Name</label>
             <input type="text" class="form-control" formControlName="name" id="add-pet-form-name" />
             <label for="add-pet-form-kind">Kind</label>
-            <select class="form-control" formControlName="kind" id="add-pet-form-kind">
-              <option *ngFor="let KindEnum of KindEnum | keyvalue" value="{{KindEnum.value}}">{{KindEnum.value|titlecase}}</option>
+            <select class="form-control" formControlName="kind" id="add-pet-form-kind" ngModel="cat">
+            <option *ngFor="let KindEnum of KindEnum | keyvalue" value="{{KindEnum.value}}">{{KindEnum.value|titlecase}}</option>
             </select>
             <label for="add-pet-form-image">Picture</label>
             <input type="text" class="form-control" formControlName="image" id="add-pet-form-image" />

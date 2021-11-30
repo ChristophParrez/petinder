@@ -7,12 +7,14 @@ import {LayoutModule} from "./layout/layout.module";
 import {ProfileGalleryComponent} from './profile-gallery/profile-gallery.component';
 import {NameFilterPipe} from './pipe/name-filter.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SetupDateComponent } from './date/setup-date/setup-date.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileGalleryComponent,
-    NameFilterPipe
+    NameFilterPipe,
+    SetupDateComponent
   ],
   imports: [
     BrowserModule,
