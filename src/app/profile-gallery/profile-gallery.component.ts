@@ -48,6 +48,10 @@ export class ProfileGalleryComponent implements OnInit {
     else this._selectedPet = pet;
   }
 
+  deletePet(petId: number): void {
+    this.petService.deletePet(petId).subscribe(() => this.getPets());
+  }
+
   showDefaultImage(event: any): void {
     event.target.src = './assets/images/image-not-found.png';
   }

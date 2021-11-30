@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import { filter, map, Observable } from "rxjs";
-import {Pet} from "../model/Pet";
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../environments/environment";
+import { map, Observable } from "rxjs";
+import { Pet } from "../model/Pet";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,10 @@ export class PetService {
   }
 
   addPet(newPet: Pet): Observable<Object> {
-    return this.http.post(this.backendUrl, newPet)
+    return this.http.post(this.backendUrl, newPet);
+  }
+
+  deletePet(petId: number): Observable<Object> {
+    return this.http.delete(`${this.backendUrl}/${petId}`);
   }
 }

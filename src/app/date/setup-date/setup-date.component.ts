@@ -27,12 +27,15 @@ export class SetupDateComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = this.route.snapshot.paramMap.get('name')!;
-    console.log('setup date for ' + this.name);
     this.petService.getPetByName(this.name).subscribe(response => this.pet = response);
   }
 
   showDefaultImage(event: any): void {
     event.target.src = './assets/images/image-not-found-small.png';
+  }
+
+  test(): void {
+    console.log(this.pet);
   }
 
 }

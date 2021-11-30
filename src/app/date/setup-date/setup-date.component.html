@@ -1,12 +1,12 @@
 <div class="container modalPopup">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="big-dialog">
+      <div class="big-dialog" *ngIf="pet">
         <div class="clearfix">
           <div class="pull-left dialog-picture">
             <img class="small-profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image" (error)="showDefaultImage($event)">
           </div>
-          <h3>{{pet.name}}</h3>
+          <h3 (click)="test()">{{pet.name}}</h3>
           <p>{{pet.profileText}}</p>
         </div>
         <div class="clearfix">
