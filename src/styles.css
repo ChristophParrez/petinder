@@ -6372,7 +6372,7 @@ body {
 .tiny-dialog {
   background-color: #fff;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 15px 25px;
   margin: 10px;
   position: relative;
   top: -60px
@@ -6407,16 +6407,21 @@ body {
 }
 
 .profile-picture {
-  height: 240px;
+  height: 220px;
   display: block;
 }
 
 .small-profile-picture {
-  height: 120px
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  object-position: center center;
+  border: 4px solid #da1d90;
+  border-radius: 50%;
 }
 
 .dialog-picture {
-  padding-right: 10px
+  margin-right: 20px;
 }
 
 .gallery-pet {
@@ -6469,7 +6474,7 @@ body {
   background-color: #fff;
   border-radius: 10px;
   margin: 10px;
-  padding: 10px
+  padding: 25px
 }
 
 .map {
@@ -6498,6 +6503,26 @@ body {
   margin-top: 10px;
 }
 
-.mb-10 {
-  margin-bottom: 10px;
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.router-wrapper {
+  padding: 25px 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-align-center {
+  align-items: center;
 }

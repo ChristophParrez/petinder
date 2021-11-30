@@ -2,20 +2,22 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="big-dialog" *ngIf="pet">
-        <div class="clearfix">
-          <div class="pull-left dialog-picture">
-            <img (click)="test()" class="small-profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image" (error)="showDefaultImage($event)">
+        <div class="flex flex-align-center">
+          <div class="dialog-picture">
+            <img (click)="test()" class="small-profile-picture" [src]="environment.backendUrl + '/' + pet.image" (error)="showDefaultImage($event)">
           </div>
-          <h3>{{pet.name}}</h3>
-          <p><strong><i>Popularity: {{pet.popularity}} - {{pet.popularity | popularity}}</i></strong></p>
-          <p>{{pet.profileText}}</p>
+          <div>
+            <h3 class="mt-10">{{pet.name}}</h3>
+            <p><strong><i>Popularity: {{pet.popularity}} - {{pet.popularity | popularity}}</i></strong></p>
+            <p>{{pet.profileText}}</p>
+          </div>
         </div>
         <div class="clearfix">
-          <a class="btn btn-default mt-10 mb-10" routerLink="">Cancel</a>
-          <form [formGroup]="sendTextForm" (ngSubmit)="onSubmit()">
+          <form class="mt-20" [formGroup]="sendTextForm" (ngSubmit)="onSubmit()">
             <label for="send-text-name">Name</label>
             <input type="text" id="send-text-name" class="form-control" formControlName="name">
-            <button type="submit" class="btn btn-primary pull-right">Let's Play</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Let's Play</button>
+            <a class="btn btn-default mt-20 btn-block btn-lg" routerLink="">Cancel</a>
           </form>
         </div>
       </div>

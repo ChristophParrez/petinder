@@ -33,7 +33,6 @@ export class PetService {
   }
 
   sendText(text: string, pet: Pet): Observable<Object> {
-    // return this.http.post(`${this.backendUrl}/sendText`, text);
     return this.http.post(`${this.backendUrl}/sendText`, text)
       .pipe(mergeMap(() => this.http.get(`${this.backendUrl}/${pet.name}/incrementPopularity`)));
   }

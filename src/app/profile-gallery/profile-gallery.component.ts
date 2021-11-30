@@ -1,20 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {PetService} from "../service/pet.service";
-import {Pet} from "../model/Pet";
-import {FormBuilder} from '@angular/forms';
-import {Kind} from '../model/Kind';
+import { Component, OnInit } from '@angular/core';
+import { PetService } from "../service/pet.service";
+import { Pet } from "../model/Pet";
+import { FormBuilder } from '@angular/forms';
+import { Kind } from '../model/Kind';
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: 'app-profile-gallery',
   templateUrl: './profile-gallery.component.html',
   styleUrls: ['./profile-gallery.component.css']
 })
+
 export class ProfileGalleryComponent implements OnInit {
 
   private _pets: Pet[];
   private _selectedPet: Pet | null;
   public searchText: string;
-  public KindEnum = Kind;
+  public kindEnum = Kind;
+  public environment = environment;
 
   public addPetForm = this.formBuilder.group({
     name: '',
@@ -39,18 +42,19 @@ export class ProfileGalleryComponent implements OnInit {
   }
 
   getPets(): void {
-    console.log('getting the pets');
     this.petService.getPets().subscribe(pets => this._pets = pets);
   }
 
   selectPet(pet: Pet): void {
     if (this._selectedPet == pet) this._selectedPet = null;
     else this._selectedPet = pet;
-    console.log('Selected pet', pet);
   }
 
   deletePet(petId: number): void {
-    this.petService.deletePet(petId).subscribe(() => this.getPets());
+    this.petService.deletePet(petId).subscribe(() => {
+      this.getPets();
+      this._selectedPet = null;
+    });
   }
 
   showDefaultImage(event: any): void {

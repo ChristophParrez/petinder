@@ -3,7 +3,7 @@
     <div id="gallery" class="col-md-9">
       <div class="gallery">
         <div class="gallery-pet fader" *ngFor="let pet of pets | nameFilter: searchText" (click)="selectPet(pet)" [class.active]="selectedPet === pet">
-          <img class="profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image" (error)="showDefaultImage($event)">
+          <img class="profile-picture" [src]="environment.backendUrl + '/' + pet.image" (error)="showDefaultImage($event)">
           <div class="overlay">
             <div class="overlay-text">{{pet.name}}</div>
           </div>
@@ -40,13 +40,13 @@
             <input type="text" class="form-control" formControlName="name" id="add-pet-form-name" />
             <label for="add-pet-form-kind">Kind</label>
             <select class="form-control" formControlName="kind" id="add-pet-form-kind" ngModel="cat">
-            <option *ngFor="let KindEnum of KindEnum | keyvalue" value="{{KindEnum.value}}">{{KindEnum.value|titlecase}}</option>
+            <option *ngFor="let KindEnum of kindEnum | keyvalue" value="{{KindEnum.value}}">{{KindEnum.value|titlecase}}</option>
             </select>
             <label for="add-pet-form-image">Picture</label>
             <input type="text" class="form-control" formControlName="image" id="add-pet-form-image" />
             <label for="add-pet-form-profileText">Profile Text</label>
             <input type="text" class="form-control" formControlName="profileText" id="add-pet-form-profileText" />
-            <button class="btn btn-primary pull-right" type="submit">Add Pet</button>
+            <button class="btn btn-primary btn-block btn-lg" type="submit">Add Pet</button>
           </form>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Pet } from "../../model/Pet";
 import { PetService } from "../../service/pet.service";
 import { FormBuilder } from "@angular/forms";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-setup-date',
@@ -12,6 +13,7 @@ import { FormBuilder } from "@angular/forms";
 export class SetupDateComponent implements OnInit {
 
   pet: Pet | any;
+  environment = environment;
 
   public sendTextForm = this.formBuilder.group({
     name: ''

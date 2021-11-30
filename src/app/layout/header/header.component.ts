@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
   private _title: string;
 
   constructor() {
-    this._title = 'Petinder'
+    this._title = 'Petinder 2.0'
   }
 
   get title(): string {
