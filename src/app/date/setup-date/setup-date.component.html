@@ -7,6 +7,7 @@
             <img (click)="test()" class="small-profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image" (error)="showDefaultImage($event)">
           </div>
           <h3>{{pet.name}}</h3>
+          <p><strong><i>Popularity: {{pet.popularity}} - {{pet.popularity | popularity}}</i></strong></p>
           <p>{{pet.profileText}}</p>
         </div>
         <div class="clearfix">

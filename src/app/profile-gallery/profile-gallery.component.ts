@@ -39,6 +39,7 @@ export class ProfileGalleryComponent implements OnInit {
   }
 
   getPets(): void {
+    console.log('getting the pets');
     this.petService.getPets().subscribe(pets => this._pets = pets);
   }
 
