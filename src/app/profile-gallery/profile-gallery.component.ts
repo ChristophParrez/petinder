@@ -20,8 +20,7 @@ export class ProfileGalleryComponent implements OnInit {
     name: '',
     kind: '',
     image: '',
-    profileText: '',
-    popularity: ''
+    profileText: ''
   });
 
   constructor(private petService: PetService, private formBuilder: FormBuilder) {

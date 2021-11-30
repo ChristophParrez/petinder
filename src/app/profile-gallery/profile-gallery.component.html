@@ -16,7 +16,7 @@
           <h3>{{selectedPet.name}}</h3>
           <p>{{selectedPet.profileText}}</p>
           <p>
-            <strong>Popularity:</strong>{{selectedPet.popularity}} {{selectedPet.popularity | popularity}}<br />
+            <strong>Popularity:</strong> {{selectedPet.popularity}} - {{selectedPet.popularity | popularity}}<br />
             <strong>Kind:</strong> {{selectedPet.kind | titlecase}}
           </p>
           <div class="dialog-centered btn-group-lg">
@@ -46,8 +46,6 @@
             <input type="text" class="form-control" formControlName="image" id="add-pet-form-image" />
             <label for="add-pet-form-profileText">Profile Text</label>
             <input type="text" class="form-control" formControlName="profileText" id="add-pet-form-profileText" />
-            <label for="add-pet-form-popularity">Popularity</label>
-            <input type="number" class="form-control" formControlName="popularity" id="add-pet-form-popularity" />
             <button class="btn btn-primary pull-right" type="submit">Add Pet</button>
           </form>
         </div>
