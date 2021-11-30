@@ -9,7 +9,9 @@ import { Pet } from "../model/Pet";
 })
 
 export class PetService {
+
   private readonly backendUrl: string;
+
   constructor(private http: HttpClient) {
     this.backendUrl = `${environment.backendUrl}/pets`;
   }
