@@ -4,16 +4,16 @@
       <div class="big-dialog" *ngIf="pet">
         <div class="clearfix">
           <div class="pull-left dialog-picture">
-            <img class="small-profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image" (error)="showDefaultImage($event)">
+            <img (click)="test()" class="small-profile-picture" [src]="'https://pettinder.herokuapp.com/'+ pet.image" (error)="showDefaultImage($event)">
           </div>
-          <h3 (click)="test()">{{pet.name}}</h3>
+          <h3>{{pet.name}}</h3>
           <p>{{pet.profileText}}</p>
         </div>
         <div class="clearfix">
           <a class="btn btn-default mt-10 mb-10" routerLink="">Cancel</a>
-          <form [formGroup]="sendTextForm">
-            <label>Name</label>
-            <input type="text" class="form-control">
+          <form [formGroup]="sendTextForm" (ngSubmit)="onSubmit()">
+            <label for="send-text-name">Name</label>
+            <input type="text" id="send-text-name" class="form-control" formControlName="name">
             <button type="submit" class="btn btn-primary pull-right">Let's Play</button>
           </form>
         </div>

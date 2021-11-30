@@ -14,11 +14,7 @@ export class SetupDateComponent implements OnInit {
   pet: Pet | any;
 
   public sendTextForm = this.formBuilder.group({
-    name: '',
-    kind: '',
-    image: '',
-    profileText: '',
-    popularity: ''
+    name: ''
   });
 
   constructor(private petService: PetService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
@@ -28,6 +24,11 @@ export class SetupDateComponent implements OnInit {
   ngOnInit(): void {
     this.name = this.route.snapshot.paramMap.get('name')!;
     this.petService.getPetByName(this.name).subscribe(response => this.pet = response);
+  }
+
+  onSubmit(): void {
+    this.petService.sendText(this.sendTextForm.value.name).subscribe();
+    this.sendTextForm.reset();
   }
 
   showDefaultImage(event: any): void {

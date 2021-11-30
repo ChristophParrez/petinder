@@ -30,13 +30,13 @@ export class ProfileGalleryComponent implements OnInit {
     this.searchText = '';
   }
 
+  ngOnInit(): void {
+    this.getPets();
+  }
+
   onSubmit(): void {
     this.petService.addPet(this.addPetForm.value).subscribe(() => this.getPets());
     this.addPetForm.reset();
-  }
-
-  ngOnInit(): void {
-    this.getPets();
   }
 
   getPets(): void {

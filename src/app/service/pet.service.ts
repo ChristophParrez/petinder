@@ -30,4 +30,8 @@ export class PetService {
   deletePet(petId: number): Observable<Object> {
     return this.http.delete(`${this.backendUrl}/${petId}`);
   }
+
+  sendText(text: string): Observable<Object> {
+    return this.http.post(`${this.backendUrl}/sendText`, text);
+  }
 }
