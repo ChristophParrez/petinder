@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  backendUrl: 'https://petinder-backend.herokuapp.com/'
 };

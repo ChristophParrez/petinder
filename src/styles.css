@@ -6345,8 +6345,12 @@ td.hidden-lg, th.hidden-lg {
 
 .footer {
   text-align: center;
-  padding: 10px;
-  font-size: 12px
+  padding: 20px 10px;
+  font-size: 14px;
+}
+
+.footer p:last-child {
+  margin-bottom: 0;
 }
 
 body {
